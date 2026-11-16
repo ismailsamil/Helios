@@ -1,8 +1,13 @@
 #ifndef DB_H
 #define DB_H
 
-int db_set(const char *key, const char *value);
+typedef struct {
+    int key;
+    char value[2000];
+} KeyValue;
 
-char *db_get(const char *key);
+int db_set(int key, const char *value);
+
+KeyValue *db_get(int wanted_key);
+
 #endif
-
